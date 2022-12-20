@@ -3,10 +3,14 @@ import type { BillType, BillStatus } from '../../types/legislations'
 import type { BillId } from '../../types/legislations'
 
 export interface Bill {
-  number: BillId,
-  type: BillType,
-  status: BillStatus,
-  sponsor: string[],
+  number: BillId
+  type: BillType
+  status: BillStatus
+  sponsor: string[]
+  titleEn: string
+  titleGa: string
+  shortTitleEn: string
+  shortTitleGa: string
 }
 export interface BillsState {
   loading: boolean

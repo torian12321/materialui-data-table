@@ -17,6 +17,10 @@ export const useFetchBills = () => {
       number: bill?.billNo,
       type: bill?.billType,
       status: bill?.status,
+      titleEn: bill?.longTitleEn,
+      titleGa: bill?.longTitleGa,
+      shortTitleEn: bill?.shortTitleEn,
+      shortTitleGa: bill?.shortTitleGa,
       sponsor: bill?.sponsors?.map(sp => sp?.sponsor?.as?.showAs || ''),
     }))))
   }, [dispatch, data])
