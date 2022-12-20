@@ -1,9 +1,10 @@
-import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
+import { useGetList } from './hooks/useGetList'
 import './App.css';
 
 function App() {
+  useGetList()
   return (
     <div className="App">
       <header className="App-header">
