@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { BillType, BillStatus } from '../../types/legislations'
-import type { RootState } from '../store';
+import type { RootState } from '../store'
 
 export interface Bill {
   number: number,
@@ -12,23 +12,31 @@ export interface BillsState {
   loading: boolean
   total: number
   bills: Bill[]
+  selection?: number // bill number ID
 }
 
 const initialState: BillsState = {
   loading: false,
   total: 0,
-  bills: []
+  bills: [],
+  selection: undefined,
 };
 
 export const billsSlice = createSlice({
   name: 'bills',
   initialState,
   reducers: {
+    setSelection: (state, action: PayloadAction<number>) => {
+      state.selection = action.payload
+    },
+    unselect: (state) => {
+      state.selection = undefined
+    },
     setLoading: (state, action: PayloadAction<boolean>) => {
-      state.loading = action.payload;
+      state.loading = action.payload
     },
     setTotal: (state, action: PayloadAction<number>) => {
-      state.total = action.payload;
+      state.total = action.payload
     },
     add: (state, action: PayloadAction<Bill>) => {
       state.bills = [
@@ -47,6 +55,8 @@ export const billsSlice = createSlice({
 });
 
 export const {
+  setSelection,
+  unselect,
   setLoading,
   setTotal,
   add,
