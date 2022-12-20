@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../../app/store';
+import type { BillType, BillStatus } from '../../types/legislations'
+import type { RootState } from '../store';
 
-interface Bill {
+export interface Bill {
   number: number,
-  type: string,
-  status: string,
+  type: BillType,
+  status: BillStatus,
   sponsor: string[],
-  // contextDate: string,
 }
 export interface BillsState {
   loading: boolean
@@ -53,9 +53,6 @@ export const {
   addBills,
 } = billsSlice.actions
 
-// The function below is called a selector and allows us to select a value from
-// the state. Selectors can also be defined inline where they're used instead of
-// in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
-export const selectCount = (state: RootState) => state.counter.value
+export const selectBills = (state: RootState) => state.bills.bills
 
 export default billsSlice.reducer

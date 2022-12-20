@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 
-import { useAppDispatch } from '../app/hooks'
+import { useAppDispatch } from '../state/hooks'
 import useFetch from './use-fetch'
-import { setTotal, addBills } from '../features/bills/bill-slice'
-import type { APIcall } from './legislations'
+import { setTotal, addBills } from '../state/slices/bill-slice'
+import type { APIcall } from '../types/legislations'
 
-export const useGetList = () => {
+export const useFetchBills = () => {
   const dispatch = useAppDispatch()
   const { data = {} as APIcall } = useFetch('https://api.oireachtas.ie/v1/legislation')
 
