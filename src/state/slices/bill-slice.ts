@@ -12,26 +12,18 @@ export interface BillsState {
   loading: boolean
   total: number
   bills: Bill[]
-  selection?: number // bill number ID
 }
 
 const initialState: BillsState = {
   loading: false,
   total: 0,
   bills: [],
-  selection: undefined,
-};
+}
 
 export const billsSlice = createSlice({
   name: 'bills',
   initialState,
   reducers: {
-    setSelection: (state, action: PayloadAction<number>) => {
-      state.selection = action.payload
-    },
-    unselect: (state) => {
-      state.selection = undefined
-    },
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.loading = action.payload
     },
@@ -52,17 +44,13 @@ export const billsSlice = createSlice({
       ]
     },
   },
-});
+})
 
 export const {
-  setSelection,
-  unselect,
   setLoading,
   setTotal,
   add,
   addBills,
 } = billsSlice.actions
-
-export const selectBills = (state: RootState) => state.bills.bills
 
 export default billsSlice.reducer

@@ -1,17 +1,23 @@
-import TablePagination from '@mui/material/TablePagination';
+import TablePagination from '@mui/material/TablePagination'
 
 interface Props {
   count?: number
   currentPage?: number
   rowsPerPage?: number
+  onRowsPerPageChange: (rpp: number) => void
 }
 
-const Pagination = ({ count = 0, currentPage = 0, rowsPerPage = 5 }: Props) => {
+const Pagination = ({
+  count = 0,
+  currentPage = 0,
+  rowsPerPage = 5,
+  onRowsPerPageChange,
+}: Props) => {
   const handleChangePage = () => {
     
   }
-  const handleChangeRowsPerPage = () => {
-    
+  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+    onRowsPerPageChange(parseInt(event.target.value, 10))
   }
 
   return (
