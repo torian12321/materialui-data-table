@@ -4,6 +4,7 @@ interface Props {
   count?: number
   currentPage?: number
   rowsPerPage?: number
+  onPageChange: (page: number) => void
   onRowsPerPageChange: (rpp: number) => void
 }
 
@@ -11,10 +12,11 @@ const Pagination = ({
   count = 0,
   currentPage = 0,
   rowsPerPage = 5,
+  onPageChange,
   onRowsPerPageChange,
 }: Props) => {
-  const handleChangePage = () => {
-    
+  const handleChangePage = (event: unknown, newPage: number) => {
+    onPageChange(newPage)    
   }
   const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
     onRowsPerPageChange(parseInt(event.target.value, 10))

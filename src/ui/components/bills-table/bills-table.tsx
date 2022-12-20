@@ -16,7 +16,7 @@ interface Props {
 }
 
 const BillsTable = ({
-	bills,
+  bills,
   onClickSeeDetails,
 }: Props) => (
 	<TableContainer component={Paper}>
