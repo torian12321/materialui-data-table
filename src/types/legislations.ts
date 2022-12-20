@@ -32,6 +32,10 @@ export interface Bill {
     sponsor: BillSponsor
   }[]
   status: BillStatus
+  longTitleEn: string
+  longTitleGa: string
+  shortTitleEn: string
+  shortTitleGa: string
 }
 
 export interface APIcall {
