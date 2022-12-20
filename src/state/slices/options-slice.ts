@@ -1,8 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+
+import type { BillId } from '../../types/legislations'
 import type { RootState } from '../store'
 
 export interface BillsState {
-  selectedBill?: number // bill number ID
+  selectedBill?: BillId // bill number ID
   tablePage: number
   rowsPerPage: number
 }
@@ -21,9 +23,11 @@ export const optionsSlice = createSlice({
       state.tablePage += 1
     },
     goToPrevPage: (state) => {
-      state.tablePage -= 1
+      if(state.tablePage > 0) {
+        state.tablePage -= 1
+      }
     },
-    selectBill: (state, action: PayloadAction<number>) => {
+    selectBill: (state, action: PayloadAction<BillId>) => {
       state.selectedBill = action.payload
     },
     unselectBill: (state) => {

@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { BillType, BillStatus } from '../../types/legislations'
-import type { RootState } from '../store'
+import type { BillId } from '../../types/legislations'
 
 export interface Bill {
-  number: number,
+  number: BillId,
   type: BillType,
   status: BillStatus,
   sponsor: string[],
@@ -37,11 +37,16 @@ export const billsSlice = createSlice({
       ]
     },
     addBills: (state, action: PayloadAction<Bill[]>) => {
-      console.log('action.payload', action.payload)
       state.bills = [
         ...state.bills,
         ...action.payload
-      ]
+      ].reduce((accBills: Bill[], currentBill) => {
+          // Prevent duplicated Ids
+          if(accBills.find(b => b?.number === currentBill.number)) {
+            return accBills
+          }
+          return [...accBills, currentBill]
+      }, [])
     },
   },
 })
