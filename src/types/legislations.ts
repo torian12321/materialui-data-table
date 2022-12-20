@@ -5,9 +5,10 @@ interface Head {
   }
 }
 
-type UrlType = string
-type BillType = "Public" | "Private"
-type BillStatus = "Current"
+export type UrlType = string
+export type BillId = number
+export type BillType = "Public" | "Private"
+export type BillStatus = "Current" | "Enacted"
 
 type BillSponsor = {
   as: {
@@ -23,10 +24,10 @@ type BillSponsor = {
 
 export interface Bill {
   amendmentLists: []
-  billNo: number
-  billType: BillType,
+  billNo: BillId
+  billType: BillType
   billTypeURI: UrlType
-  billYear: string,
+  billYear: string
   sponsors: {
     sponsor: BillSponsor
   }[]
