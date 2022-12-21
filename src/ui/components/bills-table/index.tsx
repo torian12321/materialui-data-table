@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../state/hooks'
-import { getAllBills } from '../../../state/selectors/bill-selectors'
+import { getFilteredBills } from '../../../state/selectors/bill-selectors'
 import { selectBill } from '../../../state/slices/options-slice'
 
 import Table from './bills-table'
@@ -9,7 +9,7 @@ import './bills-table.css'
 
 export const BillsTable = () => {
   const dispatch = useAppDispatch()
-  const bills = useAppSelector(getAllBills)
+  const bills = useAppSelector(getFilteredBills)
   const [currentPage, setCurrentPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(10)
   const [visibleBills, setVisibleBills] = useState(bills)
