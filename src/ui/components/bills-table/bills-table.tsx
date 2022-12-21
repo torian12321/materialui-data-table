@@ -35,6 +35,8 @@ const BillsTable = ({
 					<TableRow
 						key={row.number}
 						sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+						className='table__row'
+            onClick={() => onClickSeeDetails && onClickSeeDetails(row.number)}
 					>
 						<TableCell component="th" scope="row">
 							{row.number}
@@ -42,8 +44,8 @@ const BillsTable = ({
 						<TableCell align="right">{row.type}</TableCell>
 						<TableCell align="right">{row.status}</TableCell>
 						<TableCell align="right">{row.sponsor}</TableCell>
-						<TableCell align="right" onClick={() => onClickSeeDetails && onClickSeeDetails(row.number)}>
-							<SvgIcon component={DeleteIcon} inheritViewBox />
+						<TableCell align="right">
+							<SvgIcon component={DeleteIcon} inheritViewBox className='table__row__icon' />
 						</TableCell>
 					</TableRow>
 				))}

@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../state/hooks'
-import { getAllBills } from '../../../state/selectors/bill-selectors'
+import { getFilteredBills } from '../../../state/selectors/bill-selectors'
 import { selectBill } from '../../../state/slices/options-slice'
 
 import Table from './bills-table'
 import Pagination from './bills-table-pagination'
+import './bills-table.css'
 
 export const BillsTable = () => {
   const dispatch = useAppDispatch()
-  const bills = useAppSelector(getAllBills)
+  const bills = useAppSelector(getFilteredBills)
   const [currentPage, setCurrentPage] = useState(0)
-  const [rowsPerPage, setRowsPerPage] = useState(5)
+  const [rowsPerPage, setRowsPerPage] = useState(10)
   const [visibleBills, setVisibleBills] = useState(bills)
   
   useEffect(() => {
@@ -24,8 +25,13 @@ export const BillsTable = () => {
     dispatch(selectBill(billId))
   }
 
+  const handleOnRPPChange = (rpp: number) => {
+    setRowsPerPage(rpp)
+    setCurrentPage(0)
+  }
+
   return (
-    <div>
+    <div className="table-wrapper">
       <Table
         bills={visibleBills}
         onClickSeeDetails={handleSeeDetails}
@@ -35,7 +41,7 @@ export const BillsTable = () => {
         currentPage={currentPage}
         rowsPerPage={rowsPerPage}
         onPageChange={(newPage: number) => setCurrentPage(newPage)}
-        onRowsPerPageChange={(newPage: number) => setRowsPerPage(newPage)}
+        onRowsPerPageChange={handleOnRPPChange}
       />
     </div>
   )

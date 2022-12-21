@@ -12,6 +12,7 @@ describe('options reducer', () => {
     tablePage: 2,
     rowsPerPage: 5
   }
+
   it('should handle initial state', () => {
     expect(optionsReducer(undefined, { type: 'unknown' })).toEqual({
       selectedBill: undefined,

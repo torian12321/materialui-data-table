@@ -1,0 +1,17 @@
+.table-wrapper {
+  width: 100%;
+}
+
+.table__row:hover {
+  background: #e4eee5;
+}
+.table__row:hover .table__row__icon{
+  opacity: 1;
+}
+
+.table__row__icon {
+  cursor: pointer;
+  opacity: 0;
+  color: #59a481; 
+  fill: #59a481;
+}
