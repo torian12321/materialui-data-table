@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import type { BillId } from '../../types/legislations'
-import type { RootState } from '../store'
 
 export interface OptionsState {
   selectedBill?: BillId // bill number ID
