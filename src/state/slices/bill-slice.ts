@@ -16,12 +16,14 @@ export interface BillsState {
   loading: boolean
   total: number
   bills: Bill[]
+  favorites: BillId[]
 }
 
-const initialState: BillsState = {
+export const initialState: BillsState = {
   loading: false,
   total: 0,
   bills: [],
+  favorites: [],
 }
 
 export const billsSlice = createSlice({
@@ -52,6 +54,12 @@ export const billsSlice = createSlice({
           return [...accBills, currentBill]
       }, [])
     },
+    addFavorite: (state, action: PayloadAction<BillId>) => {
+      state.favorites.push(action.payload)
+    },
+    removeFavorite: (state, action: PayloadAction<BillId>) => {
+      state.favorites = state.favorites.filter(favorite => favorite !== action.payload)
+    },
   },
 })
 
@@ -60,6 +68,8 @@ export const {
   setTotal,
   add,
   addBills,
+  addFavorite,
+  removeFavorite,
 } = billsSlice.actions
 
 export default billsSlice.reducer
