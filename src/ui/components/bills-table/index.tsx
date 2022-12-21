@@ -11,7 +11,7 @@ export const BillsTable = () => {
   const dispatch = useAppDispatch()
   const bills = useAppSelector(getAllBills)
   const [currentPage, setCurrentPage] = useState(0)
-  const [rowsPerPage, setRowsPerPage] = useState(5)
+  const [rowsPerPage, setRowsPerPage] = useState(10)
   const [visibleBills, setVisibleBills] = useState(bills)
   
   useEffect(() => {
