@@ -5,6 +5,7 @@ import { selectBill } from '../../../state/slices/options-slice'
 
 import Table from './bills-table'
 import Pagination from './bills-table-pagination'
+import './bills-table.css'
 
 export const BillsTable = () => {
   const dispatch = useAppDispatch()
@@ -24,8 +25,13 @@ export const BillsTable = () => {
     dispatch(selectBill(billId))
   }
 
+  const handleOnRPPChange = (rpp: number) => {
+    setRowsPerPage(rpp)
+    setCurrentPage(0)
+  }
+
   return (
-    <div>
+    <div className="table-wrapper">
       <Table
         bills={visibleBills}
         onClickSeeDetails={handleSeeDetails}
@@ -35,7 +41,7 @@ export const BillsTable = () => {
         currentPage={currentPage}
         rowsPerPage={rowsPerPage}
         onPageChange={(newPage: number) => setCurrentPage(newPage)}
-        onRowsPerPageChange={(newPage: number) => setRowsPerPage(newPage)}
+        onRowsPerPageChange={handleOnRPPChange}
       />
     </div>
   )

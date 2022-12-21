@@ -8,12 +8,12 @@ const App = () => {
   useFetchBills()
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="app">
+      <div className="app-body">
         <Filters />
         <ModalDetails />
         <BillsTable />
-      </header>
+      </div>
     </div>
   )
 }

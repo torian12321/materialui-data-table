@@ -1,10 +1,10 @@
-import Box from '@mui/material/Box'
 import Select from '../components/select'
 import { getTypeFilter, getStatusFilter } from '../../state/selectors/filters-selectors'
 import { useAppDispatch, useAppSelector } from '../../state/hooks'
 import { setStatusFilter, setTypeFilter } from '../../state/slices/filters-slice'
 
 import { TYPE_OPTIONS, STATUS_OPTIONS } from './filters.constants'
+import './filters.css'
 
 const Filters = () => {
   const dispatch = useAppDispatch()
@@ -12,7 +12,7 @@ const Filters = () => {
   const status = useAppSelector(getStatusFilter)
 
   return (
-    <Box sx={{ minWidth: 120,  m: 4 }}>
+    <div className="filters-wrapper">
       <Select
         label='Status'
         id='status-filter'
@@ -27,7 +27,7 @@ const Filters = () => {
         onChange={(v: string) => dispatch(setTypeFilter(v))}
         options={TYPE_OPTIONS}
       />
-    </Box>
+    </div>
   )
 }
 

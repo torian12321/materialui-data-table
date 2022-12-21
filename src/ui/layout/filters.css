@@ -1,0 +1,6 @@
+.filters-wrapper {
+  margin: 0 auto 48px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
