@@ -47,8 +47,4 @@ export const {
   setRowsPerPage,
 } = optionsSlice.actions
 
-export const selectOptions = (state: RootState) => state.options
-export const selectSelectedBill = (state: RootState) => state.options.selectedBill
-export const selectRowsPerPage = (state: RootState) => state.options.rowsPerPage
-
 export default optionsSlice.reducer
