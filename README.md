@@ -1,6 +1,7 @@
 # General details
 
 Code exercise to show the data from [oireachtas](https://api.oireachtas.ie/) in a table and using [Material UI](https://mui.com/) components
+Check the page [here](https://torian12321.github.io/materialui-data-table/)
 
 ## Available Scripts
 
