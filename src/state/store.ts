@@ -2,7 +2,7 @@ import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
 
 import billsReducer from './slices/bill-slice'
 import optionsReducer from './slices/options-slice'
-import filtersReducer from './slices/filtres-slice'
+import filtersReducer from './slices/filters-slice'
 
 export const store = configureStore({
   reducer: {

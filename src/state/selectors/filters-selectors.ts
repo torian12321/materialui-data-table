@@ -7,5 +7,5 @@ export const getFilterByName = (state: RootState, name: 'type' | 'status') =>
 export const getTypeFilter = (state: RootState) =>
  state.filters.type
 
-export const getTypeStatus = (state: RootState) =>
+export const getStatusFilter = (state: RootState) =>
  state.filters.status
