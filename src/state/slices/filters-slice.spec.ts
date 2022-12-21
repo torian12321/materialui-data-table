@@ -6,7 +6,7 @@ import optionsReducer, {
 } from './filters-slice'
 import type { FiltersState } from './filters-slice'
 
-describe('options reducer', () => {
+describe('filters reducer', () => {
   const initialState: FiltersState = {
     status: undefined,
     type: undefined,
